@@ -11,7 +11,7 @@
 
 ### MVP user should be able to:
 - Create courses and classrooms
-- A course should be able to have multiple classes (groups of students)
+- A course should be able to have multiple classes (groups of students), course name, course ID, course   level, no. of lessons
 - A class should be able to have many students
 - A course should be a collection of lessons
 - A lesson should have a date, start and end time, mark mandatory yes/no, and should be numbered incrementally, should have a location (building and room number)
