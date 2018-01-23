@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{18341583-ED86-44C2-B28C-D232D30D6BEA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ClassroomManager/Migrations/20180123140958_InitialCreate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ClassroomManager/Controllers/AbsenceController.cs">
     <Files>
       <File FileName="ClassroomManager/Data/CMContext.cs" Line="11" Column="13" />
       <File FileName="ClassroomManager/Models/Absence.cs" Line="7" Column="43" />
       <File FileName="ClassroomManager/Controllers/AbsenceController.cs" Line="22" Column="48" />
-      <File FileName="ClassroomManager/Migrations/20180123140958_InitialCreate.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

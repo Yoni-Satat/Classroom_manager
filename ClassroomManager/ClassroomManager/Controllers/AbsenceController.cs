@@ -21,5 +21,12 @@ namespace ClassroomManager.Controllers
         public IEnumerable<Absence> Get() {
             return CMContext.Absences.ToList();
         }
+
+        [HttpPost]
+        public Absence Post([FromBody] Absence reason) {
+            CMContext.Absences.Add(reason);
+            CMContext.SaveChanges();
+            return reason;
+        }
     }
 }
