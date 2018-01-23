@@ -4,6 +4,7 @@ using System.Linq;
 using ClassroomManager.Data;
 using ClassroomManager.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClassroomManager.Controllers
 {
@@ -27,6 +28,14 @@ namespace ClassroomManager.Controllers
             CMContext.Absences.Add(reason);
             CMContext.SaveChanges();
             return reason;
+        }
+
+        [HttpGet("{id}")]
+        public Absence Get(int id) {
+            var foundReason = CMContext
+                .Absences
+                .Where((reason) => id == reason.ID).FirstOrDefault();
+            return foundReason;
         }
     }
 }
