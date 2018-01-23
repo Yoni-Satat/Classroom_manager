@@ -37,5 +37,15 @@ namespace ClassroomManager.Controllers
                 .Where((reason) => id == reason.ID).FirstOrDefault();
             return foundReason;
         }
+
+        [HttpPut("{id}")]
+        public Absence Put(int id, [FromBody] Absence updatedAbsence) {
+            var foundReason = CMContext
+                .Absences
+                .Where((reason) => id == reason.ID).FirstOrDefault();
+            foundReason.Reason = updatedAbsence.Reason;
+            CMContext.SaveChanges();
+            return foundReason;
+        }
     }
 }
