@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassroomManager", "ClassroomManager\ClassroomManager.csproj", "{18341583-ED86-44C2-B28C-D232D30D6BEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18341583-ED86-44C2-B28C-D232D30D6BEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18341583-ED86-44C2-B28C-D232D30D6BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18341583-ED86-44C2-B28C-D232D30D6BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18341583-ED86-44C2-B28C-D232D30D6BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
