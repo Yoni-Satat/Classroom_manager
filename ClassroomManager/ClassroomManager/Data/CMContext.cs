@@ -8,6 +8,7 @@ namespace ClassroomManager.Data
     {
         public DbSet<Absence> Absences { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
         public CMContext(DbContextOptions<CMContext> options) : base(options) {
             
         }
