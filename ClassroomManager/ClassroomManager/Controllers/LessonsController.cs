@@ -21,5 +21,21 @@ namespace ClassroomManager.Controllers
         public IEnumerable<Lesson> Get() {
             return CMContext.Lessons.ToList();
         }
+
+        [HttpPost]
+        public Lesson Post([FromBody] Lesson lesson)
+        {
+            CMContext.Lessons.Add(lesson);
+            CMContext.SaveChanges();
+            return lesson;
+        }
+
+        [HttpGet("{id}")]
+        public Lesson Get(int id) {
+            var foundLesson = CMContext
+                .Lessons
+                .Where((lesson) => id == lesson.ID).FirstOrDefault();
+            return foundLesson;
+        }
     }
 }
