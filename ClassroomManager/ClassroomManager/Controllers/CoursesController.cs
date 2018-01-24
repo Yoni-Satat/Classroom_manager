@@ -23,6 +23,15 @@ namespace ClassroomManager.Controllers
             return CMContext.Courses.ToList();
         }
 
+        [HttpPost]
+        public Course Post([FromBody] Course course)
+        {
+            CMContext.Courses.Add(course);
+            CMContext.SaveChanges();
+            return course;
+        }
+
+
 
     }
 }
