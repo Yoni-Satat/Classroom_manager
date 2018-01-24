@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{18341583-ED86-44C2-B28C-D232D30D6BEA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ClassroomManager/Models/Student.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ClassroomManager/Controllers/StudentsController.cs">
     <Files>
       <File FileName="ClassroomManager/Data/CMContext.cs" Line="11" Column="13" />
-      <File FileName="ClassroomManager/Models/Student.cs" Line="6" Column="9" />
+      <File FileName="ClassroomManager/Models/Student.cs" Line="7" Column="46" />
+      <File FileName="ClassroomManager/Controllers/StudentsController.cs" Line="8" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
