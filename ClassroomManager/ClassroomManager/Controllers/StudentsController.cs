@@ -39,5 +39,30 @@ namespace ClassroomManager.Controllers
         }
 
 
+        [HttpPut("{id}")]
+        public Student Put(int id, [FromBody] Student updatedStudent)
+        {
+            var foundStudent = CMContext
+                .Students
+                .Where((student) => id == student.ID).FirstOrDefault();
+            
+            foundStudent.firstName = updatedStudent.firstName;
+            foundStudent.lastName = updatedStudent.lastName;
+            foundStudent.DateOfBirth = updatedStudent.DateOfBirth;
+            foundStudent.matricNumber = updatedStudent.matricNumber;
+            foundStudent.gender = updatedStudent.gender;
+            foundStudent.adjustments = updatedStudent.adjustments;
+            foundStudent.origin = updatedStudent.origin;
+            foundStudent.yearOfStudy = updatedStudent.yearOfStudy;
+
+            CMContext.SaveChanges();
+
+            return foundStudent;
+        }
+
+
+
+
+
     }
 }
