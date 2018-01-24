@@ -29,6 +29,15 @@ namespace ClassroomManager.Controllers
             return student;
         }
 
+        [HttpGet("{id}")]
+        public Student Get(int id)
+        {
+            var foundStudent = CMContext
+                .Students
+                .Where((student) => id == student.ID).FirstOrDefault();
+            return foundStudent;
+        }
+
 
     }
 }
