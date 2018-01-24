@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ClassroomManager.Data;
+using ClassroomManager.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClassroomManager.Controllers
@@ -13,5 +16,13 @@ namespace ClassroomManager.Controllers
         {
             CMContext = cmContext;
         }
+
+        [HttpGet]
+        public IEnumerable<Course> Get()
+        {
+            return CMContext.Courses.ToList();
+        }
+
+
     }
 }
