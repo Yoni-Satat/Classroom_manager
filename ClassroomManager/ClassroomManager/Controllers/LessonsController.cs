@@ -40,6 +40,26 @@ namespace ClassroomManager.Controllers
             return foundLesson;
         }
 
+        [HttpPut("{id}")]
+        public Lesson Put(int id, [FromBody] Lesson updatedLesson)
+        {
+            var foundLesson = CMContext
+                .Lessons
+                .Where((lesson) => id == lesson.ID).FirstOrDefault();
+
+            foundLesson.topic = updatedLesson.topic;
+            foundLesson.startTime = updatedLesson.startTime;
+            foundLesson.endTime = updatedLesson.endTime;
+            foundLesson.isMandatory = updatedLesson.isMandatory;
+            foundLesson.index = updatedLesson.index;
+            foundLesson.location = updatedLesson.location;
+
+
+            CMContext.SaveChanges();
+
+            return foundLesson;
+        }
+
 
     }
 }
