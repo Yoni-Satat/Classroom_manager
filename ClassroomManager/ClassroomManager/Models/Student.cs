@@ -6,7 +6,7 @@ namespace ClassroomManager.Models
         public int ID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        public DateTime? DOB { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string matricNumber { get; set; }
         public string gender { get; set; }
         public bool adjustments { get; set; }

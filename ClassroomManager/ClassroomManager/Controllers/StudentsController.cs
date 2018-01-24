@@ -22,7 +22,12 @@ namespace ClassroomManager.Controllers
             return CMContext.Students.ToList();
         }
 
-
+        [HttpPost]
+        public Student Post([FromBody] Student student) {
+            CMContext.Students.Add(student);
+            CMContext.SaveChanges();
+            return student;
+        }
 
 
     }
