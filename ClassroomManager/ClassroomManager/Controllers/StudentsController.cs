@@ -60,7 +60,16 @@ namespace ClassroomManager.Controllers
             return foundStudent;
         }
 
-
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var foundStudent = CMContext
+                .Students
+                .Where((student) => id == student.ID).FirstOrDefault();
+            CMContext.Students.Remove(foundStudent);
+            CMContext.SaveChanges();
+            return NoContent();
+        }
 
 
 
