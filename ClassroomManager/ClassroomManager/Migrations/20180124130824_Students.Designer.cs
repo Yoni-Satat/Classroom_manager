@@ -11,9 +11,10 @@ using System;
 namespace ClassroomManager.Migrations
 {
     [DbContext(typeof(CMContext))]
-    partial class CMContextModelSnapshot : ModelSnapshot
+    [Migration("20180124130824_Students")]
+    partial class Students
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +38,7 @@ namespace ClassroomManager.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DateOfBirth");
+                    b.Property<string>("DOB");
 
                     b.Property<bool>("adjustments");
 
