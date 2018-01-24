@@ -41,5 +41,19 @@ namespace ClassroomManager.Controllers
         }
 
 
+        [HttpPut("{id}")]
+        public Course Put(int id, [FromBody] Course updatedCourse)
+        {
+            var foundCourse = CMContext
+                .Courses
+                .Where((course) => id == course.ID).FirstOrDefault();
+            foundCourse.title = updatedCourse.title;
+            foundCourse.level = updatedCourse.level;
+            foundCourse.courseUniId = updatedCourse.courseUniId;
+            foundCourse.numberOfLessons = updatedCourse.numberOfLessons;
+            CMContext.SaveChanges();
+            return foundCourse;
+        }
+
     }
 }
