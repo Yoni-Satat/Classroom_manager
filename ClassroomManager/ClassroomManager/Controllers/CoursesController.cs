@@ -55,5 +55,17 @@ namespace ClassroomManager.Controllers
             return foundCourse;
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var foundCourse = CMContext
+                .Courses
+                .Where((course) => id == course.ID).FirstOrDefault();
+            CMContext.Courses.Remove(foundCourse);
+            CMContext.SaveChanges();
+            return NoContent();
+        }
+
+
     }
 }
