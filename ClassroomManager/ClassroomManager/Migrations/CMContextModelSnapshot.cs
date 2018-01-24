@@ -67,6 +67,8 @@ namespace ClassroomManager.Migrations
 
                     b.Property<DateTime>("startTime");
 
+                    b.Property<string>("topic");
+
                     b.HasKey("ID");
 
                     b.HasIndex("CourseID");

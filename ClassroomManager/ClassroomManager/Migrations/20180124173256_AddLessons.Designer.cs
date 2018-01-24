@@ -11,8 +11,8 @@ using System;
 namespace ClassroomManager.Migrations
 {
     [DbContext(typeof(CMContext))]
-    [Migration("20180124162523_Lessons")]
-    partial class Lessons
+    [Migration("20180124173256_AddLessons")]
+    partial class AddLessons
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,6 +67,8 @@ namespace ClassroomManager.Migrations
                     b.Property<string>("location");
 
                     b.Property<DateTime>("startTime");
+
+                    b.Property<string>("topic");
 
                     b.HasKey("ID");
 

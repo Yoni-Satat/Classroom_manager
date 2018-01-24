@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ClassroomManager.Migrations
 {
-    public partial class Lessons : Migration
+    public partial class AddLessons : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +20,8 @@ namespace ClassroomManager.Migrations
                     index = table.Column<int>(nullable: false),
                     isMandatory = table.Column<bool>(nullable: false),
                     location = table.Column<string>(nullable: true),
-                    startTime = table.Column<DateTime>(nullable: false)
+                    startTime = table.Column<DateTime>(nullable: false),
+                    topic = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

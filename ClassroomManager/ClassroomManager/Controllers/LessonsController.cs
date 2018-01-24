@@ -4,6 +4,7 @@ using System.Linq;
 using ClassroomManager.Data;
 using ClassroomManager.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClassroomManager.Controllers
 {
@@ -34,8 +35,11 @@ namespace ClassroomManager.Controllers
         public Lesson Get(int id) {
             var foundLesson = CMContext
                 .Lessons
+                .Include((lesson) => lesson.course)
                 .Where((lesson) => id == lesson.ID).FirstOrDefault();
             return foundLesson;
         }
+
+
     }
 }
