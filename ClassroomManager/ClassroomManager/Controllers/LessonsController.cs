@@ -60,6 +60,17 @@ namespace ClassroomManager.Controllers
             return foundLesson;
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var foundLesson = CMContext
+                .Lessons
+                .Where((lesson) => id == lesson.ID).FirstOrDefault();
+            CMContext.Lessons.Remove(foundLesson);
+            CMContext.SaveChanges();
+            return NoContent();
+        }
+
 
     }
 }
