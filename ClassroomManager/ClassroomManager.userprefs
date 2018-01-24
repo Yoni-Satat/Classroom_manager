@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{18341583-ED86-44C2-B28C-D232D30D6BEA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ClassroomManager/Controllers/StudentsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ClassroomManager/Migrations/20180124133148_RemoveFalseDOB.cs">
     <Files>
-      <File FileName="ClassroomManager/Data/CMContext.cs" Line="11" Column="13" />
-      <File FileName="ClassroomManager/Models/Student.cs" Line="7" Column="46" />
-      <File FileName="ClassroomManager/Controllers/StudentsController.cs" Line="8" Column="10" />
+      <File FileName="ClassroomManager/Data/CMContext.cs" Line="11" Column="40" />
+      <File FileName="ClassroomManager/Models/Absence.cs" Line="1" Column="1" />
+      <File FileName="ClassroomManager/Controllers/AbsenceController.cs" Line="1" Column="1" />
+      <File FileName="ClassroomManager/Models/Student.cs" Line="1" Column="1" />
+      <File FileName="ClassroomManager/Controllers/StudentsController.cs" Line="1" Column="1" />
+      <File FileName="ClassroomManager/Migrations/20180124133148_RemoveFalseDOB.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
