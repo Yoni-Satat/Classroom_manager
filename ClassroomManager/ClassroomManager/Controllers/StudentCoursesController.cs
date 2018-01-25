@@ -44,5 +44,31 @@ namespace ClassroomManager.Controllers
             return foundStudentCourse;
         }
 
+        [HttpPut("{id}")]
+        public StudentCourse Put(int id, [FromBody] StudentCourse updatedStudentCourse)
+        {
+            var foundStudentCourse = CMContext
+                .StudentCourses
+                .Where((studentCourse) => id == studentCourse.ID).FirstOrDefault();
+
+            foundStudentCourse.courseID = updatedStudentCourse.courseID;
+      
+            CMContext.SaveChanges();
+
+            return foundStudentCourse;
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var foundStudentCourse = CMContext
+                .StudentCourses
+                .Where((studentCourse) => id == studentCourse.ID).FirstOrDefault();
+            CMContext.StudentCourses.Remove(foundStudentCourse);
+            CMContext.SaveChanges();
+            return NoContent();
+        }
+
+
     }
 }
