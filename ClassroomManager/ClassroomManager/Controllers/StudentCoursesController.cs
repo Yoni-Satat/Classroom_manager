@@ -4,6 +4,7 @@ using System.Linq;
 using ClassroomManager.Data;
 using ClassroomManager.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClassroomManager.Controllers
 {
@@ -32,7 +33,16 @@ namespace ClassroomManager.Controllers
             return studentCourse;
         }
 
-
+        [HttpGet("{id}")]
+        public StudentCourse Get(int id)
+        {
+            var foundStudentCourse = CMContext
+                .StudentCourses
+                .Include((studentCourse) => studentCourse.course)
+                .Include((studentCourse) => studentCourse.student)
+                .Where((studentCourse) => id == studentCourse.ID).FirstOrDefault();
+            return foundStudentCourse;
+        }
 
     }
 }
