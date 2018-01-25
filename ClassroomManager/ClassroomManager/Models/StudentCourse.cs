@@ -5,6 +5,8 @@ namespace ClassroomManager.Models
     {
         public int ID { get; set; }
         public int studentID { get; set; }
+        public Student student { get; set; }
         public int courseID { get; set; }
+        public Course course { get; set; }
     }
 }
