@@ -1,10 +1,18 @@
 ﻿using System;
+using ClassroomManager.Data;
+using Microsoft.AspNetCore.Mvc;
+
 namespace ClassroomManager.Controllers
 {
-    public class StudentCoursesController
+    [Route("api/[controller]")]
+    public class StudentCoursesController : Controller
     {
-        public StudentCoursesController()
+       
+        public CMContext CMContext { get; set; }
+
+        public StudentCoursesController(CMContext cmContext)
         {
+            CMContext = cmContext;
         }
     }
 }
