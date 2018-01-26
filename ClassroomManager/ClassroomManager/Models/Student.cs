@@ -12,6 +12,6 @@ namespace ClassroomManager.Models
         public bool adjustments { get; set; }
         public string origin { get; set; }
         public int yearOfStudy { get; set; }
-
+        public string imageURL { get; set; }
     }
 }
