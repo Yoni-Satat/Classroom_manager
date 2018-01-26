@@ -40,5 +40,18 @@ namespace ClassroomManager.Controllers
                                            .FirstOrDefault();
             return foundAttendance;
         }
+
+        [HttpPut("{id}")]
+        public Attendance Put(int id, [FromBody] Attendance updatedAttendance) {
+            var foundAttendance = CMContext.Attendances.Where((attendance) => id == attendance.ID)
+                                           .FirstOrDefault();
+            foundAttendance.studentID = updatedAttendance.studentID;
+            foundAttendance.lessonID = updatedAttendance.lessonID;
+            foundAttendance.courseID = updatedAttendance.courseID;
+            foundAttendance.reasonID = updatedAttendance.reasonID;
+            foundAttendance.present = updatedAttendance.present;
+            CMContext.SaveChanges();
+            return foundAttendance;
+        }
     }
 }
