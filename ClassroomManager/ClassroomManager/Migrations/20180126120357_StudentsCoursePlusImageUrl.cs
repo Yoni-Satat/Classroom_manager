@@ -5,10 +5,15 @@ using System.Collections.Generic;
 
 namespace ClassroomManager.Migrations
 {
-    public partial class StudentCourses : Migration
+    public partial class StudentsCoursePlusImageUrl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<string>(
+                name: "imageURL",
+                table: "Students",
+                nullable: true);
+
             migrationBuilder.CreateTable(
                 name: "StudentCourses",
                 columns: table => new
@@ -50,6 +55,10 @@ namespace ClassroomManager.Migrations
         {
             migrationBuilder.DropTable(
                 name: "StudentCourses");
+
+            migrationBuilder.DropColumn(
+                name: "imageURL",
+                table: "Students");
         }
     }
 }
