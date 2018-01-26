@@ -53,5 +53,14 @@ namespace ClassroomManager.Controllers
             CMContext.SaveChanges();
             return foundAttendance;
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id) {
+            var foundAttendance = CMContext.Attendances.Where((attendance) => id == attendance.ID)
+                                           .FirstOrDefault();
+            CMContext.Attendances.Remove(foundAttendance);
+            CMContext.SaveChanges();
+            return NoContent();
+        }
     }
 }
