@@ -11,9 +11,10 @@ using System;
 namespace ClassroomManager.Migrations
 {
     [DbContext(typeof(CMContext))]
-    partial class CMContextModelSnapshot : ModelSnapshot
+    [Migration("20180126094642_AddedIMageUrlToStudents")]
+    partial class AddedIMageUrlToStudents
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,42 +105,11 @@ namespace ClassroomManager.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("ClassroomManager.Models.StudentCourse", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("courseID");
-
-                    b.Property<int>("studentID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("courseID");
-
-                    b.HasIndex("studentID");
-
-                    b.ToTable("StudentCourses");
-                });
-
             modelBuilder.Entity("ClassroomManager.Models.Lesson", b =>
                 {
                     b.HasOne("ClassroomManager.Models.Course", "course")
                         .WithMany()
                         .HasForeignKey("CourseID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ClassroomManager.Models.StudentCourse", b =>
-                {
-                    b.HasOne("ClassroomManager.Models.Course", "course")
-                        .WithMany()
-                        .HasForeignKey("courseID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ClassroomManager.Models.Student", "student")
-                        .WithMany()
-                        .HasForeignKey("studentID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
