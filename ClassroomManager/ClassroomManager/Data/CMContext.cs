@@ -11,6 +11,7 @@ namespace ClassroomManager.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<Attendance> Attendances { get; set; }
         public CMContext(DbContextOptions<CMContext> options) : base(options) {
             
         }

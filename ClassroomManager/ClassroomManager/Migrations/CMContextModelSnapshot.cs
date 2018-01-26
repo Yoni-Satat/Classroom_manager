@@ -32,6 +32,34 @@ namespace ClassroomManager.Migrations
                     b.ToTable("Absences");
                 });
 
+            modelBuilder.Entity("ClassroomManager.Models.Attendance", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("courseID");
+
+                    b.Property<int>("lessonID");
+
+                    b.Property<bool>("present");
+
+                    b.Property<int>("reasonID");
+
+                    b.Property<int>("studentID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("courseID");
+
+                    b.HasIndex("lessonID");
+
+                    b.HasIndex("reasonID");
+
+                    b.HasIndex("studentID");
+
+                    b.ToTable("Attendances");
+                });
+
             modelBuilder.Entity("ClassroomManager.Models.Course", b =>
                 {
                     b.Property<int>("ID")
@@ -120,6 +148,29 @@ namespace ClassroomManager.Migrations
                     b.HasIndex("studentID");
 
                     b.ToTable("StudentCourses");
+                });
+
+            modelBuilder.Entity("ClassroomManager.Models.Attendance", b =>
+                {
+                    b.HasOne("ClassroomManager.Models.Course", "course")
+                        .WithMany()
+                        .HasForeignKey("courseID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ClassroomManager.Models.Lesson", "lesson")
+                        .WithMany()
+                        .HasForeignKey("lessonID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ClassroomManager.Models.Absence", "reason")
+                        .WithMany()
+                        .HasForeignKey("reasonID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ClassroomManager.Models.Student", "student")
+                        .WithMany()
+                        .HasForeignKey("studentID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ClassroomManager.Models.Lesson", b =>

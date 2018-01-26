@@ -11,8 +11,8 @@ using System;
 namespace ClassroomManager.Migrations
 {
     [DbContext(typeof(CMContext))]
-    [Migration("20180126094642_AddedIMageUrlToStudents")]
-    partial class AddedIMageUrlToStudents
+    [Migration("20180126120531_AddAttendencesTable")]
+    partial class AddAttendencesTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,34 @@ namespace ClassroomManager.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Absences");
+                });
+
+            modelBuilder.Entity("ClassroomManager.Models.Attendance", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("courseID");
+
+                    b.Property<int>("lessonID");
+
+                    b.Property<bool>("present");
+
+                    b.Property<int>("reasonID");
+
+                    b.Property<int>("studentID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("courseID");
+
+                    b.HasIndex("lessonID");
+
+                    b.HasIndex("reasonID");
+
+                    b.HasIndex("studentID");
+
+                    b.ToTable("Attendances");
                 });
 
             modelBuilder.Entity("ClassroomManager.Models.Course", b =>
@@ -105,11 +133,65 @@ namespace ClassroomManager.Migrations
                     b.ToTable("Students");
                 });
 
+            modelBuilder.Entity("ClassroomManager.Models.StudentCourse", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("courseID");
+
+                    b.Property<int>("studentID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("courseID");
+
+                    b.HasIndex("studentID");
+
+                    b.ToTable("StudentCourses");
+                });
+
+            modelBuilder.Entity("ClassroomManager.Models.Attendance", b =>
+                {
+                    b.HasOne("ClassroomManager.Models.Course", "course")
+                        .WithMany()
+                        .HasForeignKey("courseID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ClassroomManager.Models.Lesson", "lesson")
+                        .WithMany()
+                        .HasForeignKey("lessonID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ClassroomManager.Models.Absence", "reason")
+                        .WithMany()
+                        .HasForeignKey("reasonID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ClassroomManager.Models.Student", "student")
+                        .WithMany()
+                        .HasForeignKey("studentID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("ClassroomManager.Models.Lesson", b =>
                 {
                     b.HasOne("ClassroomManager.Models.Course", "course")
                         .WithMany()
                         .HasForeignKey("CourseID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ClassroomManager.Models.StudentCourse", b =>
+                {
+                    b.HasOne("ClassroomManager.Models.Course", "course")
+                        .WithMany()
+                        .HasForeignKey("courseID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ClassroomManager.Models.Student", "student")
+                        .WithMany()
+                        .HasForeignKey("studentID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

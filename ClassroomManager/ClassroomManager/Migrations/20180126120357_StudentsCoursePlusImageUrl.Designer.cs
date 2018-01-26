@@ -11,8 +11,8 @@ using System;
 namespace ClassroomManager.Migrations
 {
     [DbContext(typeof(CMContext))]
-    [Migration("20180125132109_StudentCourses")]
-    partial class StudentCourses
+    [Migration("20180126120357_StudentsCoursePlusImageUrl")]
+    partial class StudentsCoursePlusImageUrl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,8 @@ namespace ClassroomManager.Migrations
                     b.Property<string>("firstName");
 
                     b.Property<string>("gender");
+
+                    b.Property<string>("imageURL");
 
                     b.Property<string>("lastName");
 
